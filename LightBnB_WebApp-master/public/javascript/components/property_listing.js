@@ -1,7 +1,10 @@
+// const getResForm = require('./property_listings.js');
+function fInitializeBtn(id) {
+  console.log('btn got clicked', id);
+
+}
 $(() => {
   window.propertyListing = {};
-
-
 
   function createListing(property, isReservation) {
     return `
@@ -24,7 +27,7 @@ $(() => {
             <div class="property-listing__price">$${property.cost_per_night / 100.0}/night</div>
           </footer>
           </section>
-          <button>Reservation</button>
+          <button onclick='fInitializeBtn(${property.id})'>Reservation</button>
       </article>
     `;
   }

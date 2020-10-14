@@ -25,27 +25,13 @@ $(() => {
       const listing = propertyListing.createListing(property, isReservation);
       addListing(listing);
 
-      $('section > article > button').click(function (event) {
-        console.log('btn got clicked', event.target.id);
-      });
+
     }
   }
-
-  // const getResForm = (property) => {
-  //   console.log('hi');
-  //   $.get(`/api/reservation/${property.id}`)
-  //   .then(res => {
-  //     console.log(res, 'btn got clicked');
-  //     view_manager.show('reservations');
-  //   });
-  // };
-
-
-
-  // function postReservation(id) {
-  //   $.ajax({method: 'GET', url:`/api/reservation/${id}`, data:''})
-  // } 
-
   window.propertyListings.addProperties = addProperties;
 
 });
+
+// module.exports = {
+//   fInitializeBtn
+// };
