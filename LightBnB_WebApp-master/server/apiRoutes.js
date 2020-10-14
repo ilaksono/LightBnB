@@ -23,6 +23,14 @@ module.exports = function(router, database) {
     });
   });
 
+  router.get('/reservations/:id', (req, res) => {
+    res.send({});
+  });
+
+  // router.post('/reservations', (req, res) => {
+  //   res.send('successfully made reservation');
+  // });
+
   router.post('/properties', (req, res) => {
     const userId = req.session.userId;
     database.addProperty({...req.body, owner_id: userId})
