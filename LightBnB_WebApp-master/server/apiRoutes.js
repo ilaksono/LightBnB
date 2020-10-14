@@ -24,12 +24,16 @@ module.exports = function(router, database) {
   });
 
   router.get('/reservations/:id', (req, res) => {
-    res.send({});
+    if(req.session.userId) return res.send({propId: req.params.id});
+    else res.error("💩");
   });
 
-  // router.post('/reservations', (req, res) => {
-  //   res.send('successfully made reservation');
-  // });
+  router.post('/reservations', (req, res) => {
+    console.log(req.body);
+    console.log(req.body.start_date, req.body.end_date, req.body.property_id);
+    database.makeNewReservation(Number(req.body.property_id), Number(req.session.userId), req.body.start_date, req.body.end_date);
+    res.send('successfully made reservation');
+  });
 
   router.post('/properties', (req, res) => {
     const userId = req.session.userId;

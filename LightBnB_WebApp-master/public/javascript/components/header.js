@@ -87,14 +87,6 @@ $(() => {
       header.update(null);
     });
   });
-  const getResForm = (property) => {
-    $.get(`/api/reservation/${property.id}`)
-    .then(res => {
-      console.log(res, 'btn got clicked');
-      view_manager.show('reservations');
-    });
-  };
-
   $('header').on('click', '.create_listing_button', function() {
     views_manager.show('newProperty');
   });

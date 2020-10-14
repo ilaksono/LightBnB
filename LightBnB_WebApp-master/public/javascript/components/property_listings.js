@@ -24,14 +24,8 @@ $(() => {
       // console.log(propertyId);
       const listing = propertyListing.createListing(property, isReservation);
       addListing(listing);
-
-
     }
   }
   window.propertyListings.addProperties = addProperties;
 
 });
-
-// module.exports = {
-//   fInitializeBtn
-// };

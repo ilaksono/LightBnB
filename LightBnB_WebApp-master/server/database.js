@@ -71,6 +71,16 @@ LIMIT $2;
 };
 exports.getAllReservations = getAllReservations;
 
+const makeNewReservation = function(propId, guestId, startDate, endDate) {
+  return db.query(`
+  INSERT INTO reservations (start_date, end_date, property_id, guest_id)
+  VALUES ($1, $2, $3, $4)
+  RETURNING *;
+  `, [startDate,endDate, propId, guestId])
+  .then(res => res.rows[0])
+  .catch(err => null);
+}
+exports.makeNewReservation = makeNewReservation;
 /// Properties
 
 /**

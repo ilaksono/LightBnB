@@ -1,7 +1,12 @@
-// const getResForm = require('./property_listings.js');
 function fInitializeBtn(id) {
-  console.log('btn got clicked', id);
-
+  $.get(`/api/reservations/${id}`).then(res => {
+    $.ajax({ url: '/users/me' })
+      .then(() => views_manager.show('reservation')).then(() => {
+        $('#prop_id').text(res.propId);
+      })
+      .catch(err => console.log(err));
+    return res;
+  });
 }
 $(() => {
   window.propertyListing = {};
